@@ -5,6 +5,22 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Fertilizer Calculator");
+
+            Console.WriteLine("Input the Land Area for Maize in metre square:");
+            float areaMaize = float.Parse(Console.ReadLine());
+            Console.WriteLine("Input the Land Area for Pineapple in metre square:");
+            float areaPineapple = float.Parse(Console.ReadLine());
+            var maize = new Maize();
+            maize.LandAreaM2 = areaMaize;
+            var pineapple = new Pineapple();
+            pineapple.LandAreaM2 = areaPineapple;
+            var fert = new FertilizerApplication();
+            List<Stands> stand = new List<Stands>();
+            stand.Add(pineapple);
+            stand.Add(maize);
+            double fertAmount = fert.AmountOfFertilizerInGram(stand);
+            Console.WriteLine("The required amount is: "+ fertAmount);  
+
         }
     }
     /// <summary>
@@ -45,12 +61,14 @@
     /// </summary>
     public abstract class Stands
     {
-        public double LandAreaM2 { get; set; }
+        
         /// <summary>
         /// This method calculates the number of stands
         /// </summary>
         /// <returns></returns>
         public abstract int NumOfStands();
+
+      
     }
 
 
@@ -62,6 +80,7 @@
         /// <summary>
         /// Fixed value of the row
         /// </summary>
+        public double LandAreaM2 { get; set; }
         public double RowSpacing { get; } = 0.75d;
         /// <summary>
         /// Fixed value of the column
@@ -83,6 +102,7 @@
         /// <summary>
         /// Fixed row of the column
         /// </summary>
+        public double LandAreaM2 { get; set; }
         public double RowSpacing { get; } = 0.4d;
         /// <summary>
         /// Fixed value of the column
