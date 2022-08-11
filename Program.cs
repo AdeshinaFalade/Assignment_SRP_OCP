@@ -15,7 +15,7 @@
             stand.Add(new Maize() { LandAreaM2 = areaMaize});
             stand.Add(new Pineapple() { LandAreaM2 = areaPineapple });
             double fertAmount = fert.AmountOfFertilizerInGram(stand);
-            Console.WriteLine("The required amount is: "+ fertAmount);  
+            Console.WriteLine($"The required amount is: {fertAmount} grams");  
 
         }
     }
