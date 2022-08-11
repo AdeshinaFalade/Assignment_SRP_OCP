@@ -10,14 +10,10 @@
             float areaMaize = float.Parse(Console.ReadLine());
             Console.WriteLine("Input the Land Area for Pineapple in metre square:");
             float areaPineapple = float.Parse(Console.ReadLine());
-            var maize = new Maize();
-            maize.LandAreaM2 = areaMaize;
-            var pineapple = new Pineapple();
-            pineapple.LandAreaM2 = areaPineapple;
             var fert = new FertilizerApplication();
-            List<Stands> stand = new List<Stands>();
-            stand.Add(pineapple);
-            stand.Add(maize);
+            var stand = new List<Stands>();
+            stand.Add(new Maize() { LandAreaM2 = areaMaize});
+            stand.Add(new Pineapple() { LandAreaM2 = areaPineapple });
             double fertAmount = fert.AmountOfFertilizerInGram(stand);
             Console.WriteLine("The required amount is: "+ fertAmount);  
 
